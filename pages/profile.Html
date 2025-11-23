@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Vibes - Profile</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Social Vibes</h1>
+            </div>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="home.html" class="nav-btn">Back to Feed</a>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content profile-content">
+        <!-- Profile Card -->
+        <section class="profile-section">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-info">
+                        <h2 id="profileName">User Name</h2>
+                        <p id="profileEmail">email@example.com</p>
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <span class="stat-value" id="userPosts">0</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="stat-value" id="userLikes">0</span>
+                        <span class="stat-label">Total Likes</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="stat-value" id="userJoinDate">Today</span>
+                        <span class="stat-label">Joined</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Posts -->
+            <div class="my-posts-section">
+                <h3>My Posts</h3>
+                <div class="posts-feed" id="userPostsFeed">
+                    <div class="empty-state">
+                        <p>Loading your posts...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/storage.js"></script>
+    <script src="/js/profile.js"></script>
+</body>
+</html>

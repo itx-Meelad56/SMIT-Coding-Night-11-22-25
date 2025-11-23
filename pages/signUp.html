@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Vibes - Sign Up</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+     <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Social Vibes</h1>
+            </div>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="auth-container">
+        <div class="auth-wrapper">
+            <div class="auth-box signup-box active" id="signupBox">
+                <div class="auth-header">
+                    <h1>Join Social Vibes</h1>  
+                    <p>Create your account now</p>
+                </div>
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+                <p class="auth-toggle">Already have an account? <a href="/index.html" class="link-btn">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/storage.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>
