@@ -940,11 +940,6 @@ body.light-mode .profile-stats {
   .main-content {
     grid-template-columns: 1fr;
   }
-
-  .sidebar,
-  .right-sidebar {
-    display: none;
-  }
 }
 
 @media (max-width: 640px) {

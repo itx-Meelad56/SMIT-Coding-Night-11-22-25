@@ -1,4 +1,4 @@
-// Auth functionality
+
 function handleLogin(e) {
   e.preventDefault();
 
@@ -17,7 +17,7 @@ function handleLogin(e) {
     saveToStorage();
     showToast(`Welcome back, ${user.name}! 👋`, "success"); 
     setTimeout(() => {
-      window.location.href = "/pages/home.html";
+      window.location.href = "../pages/home.html";
     }, 1500);
   } else {
     alert("Email or password incorrect");  
@@ -62,7 +62,7 @@ function handleSignup(e) {
   saveToStorage();
   showToast(`Account created successfully! 🎉`, "success");
   setTimeout(() => {
-    window.location.href = "/pages/home.html";
+    window.location.href = "../pages/home.html";
   }, 1500);
 }
 
@@ -110,7 +110,7 @@ function hideToast(toast) {
   }, 300);
 }
 
-// Event listeners for auth pages
+
 document.addEventListener('DOMContentLoaded', function() {
   const loginForm = document.getElementById("loginForm");
   const signupForm = document.getElementById("signupForm");

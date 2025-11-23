@@ -3,7 +3,7 @@ function initFeed() {
   loadFromStorage();
   
   if (!currentUser) {
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
     return;
   }
 
@@ -150,7 +150,7 @@ function displayPosts(postsToShow) {
   }).join('');
 }
 
-// Add comment to post
+
 function addComment(postId) {
   const commentInput = document.getElementById(`commentInput-${postId}`);
   const text = commentInput.value.trim();
@@ -248,8 +248,7 @@ function toggleLike(postId) {
   } else {
     post.likedBy.push(currentUser.id);
     post.likes++;
-    
-    // Add notification for post owner
+   
     if (post.authorId !== currentUser.id) {
       addNotification('like', `${currentUser.name} liked your post`, postId);
     }
@@ -316,7 +315,6 @@ function updateStats() {
   }
 }
 
-// Search with debounce
 let searchTimeout;
 function handleSearch() {
   clearTimeout(searchTimeout);
@@ -325,7 +323,7 @@ function handleSearch() {
   }, 300);
 }
 
-// Sort
+
 function handleSort(filterType) {
   const sorted = [...posts];
 
@@ -340,7 +338,6 @@ function handleSort(filterType) {
   displayPosts(sorted);
 }
 
-// Modal functions
 function openCreatePostModal() {
   document.getElementById("createModal").classList.add("active");
 }
@@ -350,21 +347,21 @@ function closeCreatePostModal() {
   document.getElementById("createPostForm").reset();
 }
 
-// Logout
+
 function handleLogout() {
   if (confirm("Are you sure you want to logout?")) {
     currentUser = null;
     saveToStorage();
     showToast("Logged out successfully", "info");
-      window.location.href = "/index.html";
+      window.location.href = "../index.html";
   }
 }
 
-// Initialize feed when page loads
+
 document.addEventListener('DOMContentLoaded', function() {
   initFeed();
   
-  // Event listeners
+
   const createPostForm = document.getElementById("createPostForm");
   if (createPostForm) {
     createPostForm.addEventListener("submit", handleCreatePost);
@@ -399,8 +396,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (cancelCreatePost) {
     cancelCreatePost.addEventListener("click", closeCreatePostModal);
   }
-  
-  // Sort buttons
+
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
@@ -409,7 +405,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Close modal when clicking outside
   const createModal = document.getElementById("createModal");
   if (createModal) {
     createModal.addEventListener("click", (e) => {
@@ -419,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Notifications
+
   const notificationBtn = document.getElementById('notificationBtn');
   if (notificationBtn) {
     notificationBtn.addEventListener('click', toggleNotifications);

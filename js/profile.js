@@ -1,17 +1,17 @@
-// Profile functionality
+
 function initProfile() {
   loadFromStorage();
   
   if (!currentUser) {
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
     return;
   }
 
-  // Show user profile info
+  
   document.getElementById("profileName").textContent = currentUser.name;
   document.getElementById("profileEmail").textContent = currentUser.email;
 
-  // Show user posts
+
   displayUserPosts();
   updateProfileStats();
 }
@@ -62,7 +62,7 @@ function updateProfileStats() {
   document.getElementById("userLikes").textContent = totalLikesCount;
 }
 
-// Get time ago
+
 function getTimeAgo(dateString) {
   const postTime = new Date(dateString);
   const now = new Date();
@@ -78,7 +78,7 @@ function getTimeAgo(dateString) {
   return postTime.toLocaleDateString();
 }
 
-// Delete post
+
 function deleteUserPost(postId) {
   if (confirm("Delete this post?")) {
     posts = posts.filter((p) => p.id !== postId);
@@ -88,7 +88,7 @@ function deleteUserPost(postId) {
   }
 }
 
-// Edit post
+
 function editUserPost(postId) {
   const post = posts.find((p) => p.id === postId);
   if (!post) return;
@@ -101,16 +101,16 @@ function editUserPost(postId) {
   }
 }
 
-// Logout
+
 function handleLogout() {
   if (confirm("Are you sure you want to logout?")) {
     currentUser = null;
     saveToStorage();
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   }
 }
 
-// Initialize profile when page loads
+
 document.addEventListener('DOMContentLoaded', function() {
   initProfile();
   
