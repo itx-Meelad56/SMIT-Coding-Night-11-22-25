@@ -1,5 +1,5 @@
 
-function handleLogin(e) {
+function handleLogin(e) { 
   e.preventDefault();
 
   const email = document.getElementById("loginEmail").value.trim();
@@ -15,7 +15,7 @@ function handleLogin(e) {
   if (user) {
     currentUser = user;
     saveToStorage();
-    showToast(`Welcome back, ${user.name}! 👋`, "success"); 
+    alert(`Welcome back, ${user.name}! 👋`);
     setTimeout(() => {
       window.location.href = "../pages/home.html";
     }, 1500);
@@ -23,6 +23,7 @@ function handleLogin(e) {
     alert("Email or password incorrect");  
   }
 }
+
 
 function handleSignup(e) {
   e.preventDefault();
@@ -60,54 +61,10 @@ function handleSignup(e) {
   users.push(newUser);
   currentUser = newUser;
   saveToStorage();
-  showToast(`Account created successfully! 🎉`, "success");
+  alert("Account created successfully! 🎉");
   setTimeout(() => {
     window.location.href = "../pages/home.html";
   }, 1500);
-}
-
-
-function showToast(message, type = "success") {
-  
-  const existingToast = document.querySelector('.toast');
-  if (existingToast) {
-    existingToast.remove();
-  }
-
-  const toast = document.createElement('div');
-  toast.className = `toast toast-${type}`;
-  toast.innerHTML = `
-    <div class="toast-content">
-      <span class="toast-message">${message}</span>
-      <button class="toast-close">&times;</button>
-    </div>
-  `;
-
-  document.body.appendChild(toast);
-
-
-  setTimeout(() => {
-    toast.classList.add('show');
-  }, 100);
-
-  
-  setTimeout(() => {
-    hideToast(toast);
-  }, 3000);
-
-
-  toast.querySelector('.toast-close').addEventListener('click', () => {
-    hideToast(toast);
-  });
-}
-
-function hideToast(toast) {
-  toast.classList.remove('show');
-  setTimeout(() => {
-    if (toast.parentNode) {
-      toast.parentNode.removeChild(toast);
-    }
-  }, 300);
 }
 
 
@@ -116,15 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const signupForm = document.getElementById("signupForm");
   const themeToggle = document.getElementById("themeToggle");
   
-  if (loginForm) {
-    loginForm.addEventListener("submit", handleLogin);
-  }
-  
-  if (signupForm) {
-    signupForm.addEventListener("submit", handleSignup);
-  }
-  
-  if (themeToggle) {
-    themeToggle.addEventListener("click", toggleTheme);
-  }
+  if (loginForm) loginForm.addEventListener("submit", handleLogin);
+  if (signupForm) signupForm.addEventListener("submit", handleSignup);
+  if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
 });

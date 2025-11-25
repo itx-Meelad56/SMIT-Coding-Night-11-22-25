@@ -33,6 +33,7 @@ body {
   color: var(--text-primary);
   transition: background-color 0.3s, color 0.3s;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body.light-mode {
@@ -40,7 +41,7 @@ body.light-mode {
   color: var(--text-light);
 }
 
-/* Auth Styles */
+
 .auth-container {
   display: flex;
   align-items: center;
@@ -52,6 +53,7 @@ body.light-mode {
 body.light-mode .auth-container {
   background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
 }
+
 
 .auth-wrapper {
   position: relative;
@@ -858,7 +860,7 @@ body.light-mode .modal-actions {
   border-color: #e0e0e0;
 }
 
-/* Add profile page styles */
+
 .profile-content {
   grid-template-columns: 1fr !important;
 }
@@ -874,7 +876,7 @@ body.light-mode .modal-actions {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
 }
 
 body.light-mode .profile-card {
@@ -949,6 +951,12 @@ body.light-mode .profile-stats {
     align-items: flex-start;
   }
 
+  .auth-container {
+  min-height: 86vh;
+  margin: 0 10px;
+}
+
+
   .logo h1 {
     font-size: 1.4rem;
   }
@@ -987,4 +995,11 @@ body.light-mode .profile-stats {
   .delete-button {
     width: 100%;
   }
+}
+
+@media (max-width : 440px) {
+   .profile-card {
+  width: 350px;
+  padding: 1rem;
+}
 }
